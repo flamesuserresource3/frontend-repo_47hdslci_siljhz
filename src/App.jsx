@@ -1,28 +1,41 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import Plans from './components/Plans';
+import Contact from './components/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+    <div className="min-h-screen bg-black text-white">
+      {/* Simple sticky nav */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <a href="#" className="flex items-center gap-2 font-extrabold">
+            <span className="inline-block h-3 w-3 rounded-sm bg-red-600" />
+            VR Fitness
+          </a>
+          <nav className="hidden gap-6 text-sm text-gray-300 md:flex">
+            <a className="hover:text-white" href="#about">About</a>
+            <a className="hover:text-white" href="#plans">Plans</a>
+            <a className="hover:text-white" href="#contact">Contact</a>
+          </nav>
+          <a
+            href="#plans"
+            className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
           >
-            Count is {count}
-          </button>
+            Join Now
+          </a>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Plans />
+        <Contact />
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
